@@ -12,7 +12,7 @@ const createuser = async function (req, res) {
     if (Object.keys(data).length == 0) {
       return res.status(400).send({ status: false, message: "enter data in request body" })
     }
-    if (!title) {
+    if (!title){
       return res.status(400).send({ status: false, message: "title is required" })
     }
     if (!isEmpty(title))

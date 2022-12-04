@@ -5,7 +5,6 @@ const moment = require("moment")
 
 const { isValid, israting, isEmpty } = require("../validators/validator")
 
-
 const createReview = async function (req, res) {
     try {
         let data = req.body
