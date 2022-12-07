@@ -117,7 +117,7 @@ const updatereview = async function (req, res) {
         let dataupdated = await reviewModel.findOneAndUpdate({ _id: review2, isDeleted: false },
             { $set: { reviewedBy: reviewedBy, rating: rating, review: review } }, { new: true })
 
-        book["reviewsData"] = dataupdated
+        book["reviewsData"] = dataupdated 
         return res.status(200).send({ status: true, message: "review updated", data: book })
     }
     catch (err) {
@@ -158,3 +158,4 @@ const deletereviewById = async function (req, res) {
     }
 }
 module.exports = { createReview, updatereview, deletereviewById }
+

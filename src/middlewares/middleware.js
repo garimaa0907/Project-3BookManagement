@@ -15,7 +15,7 @@ const authenticate = function (req, res, next) {
             req.verify = verify
             next()
        
-   }
+ }
    catch (err) {
       res.status(500).send({ status: false, message: err.message })
    }
