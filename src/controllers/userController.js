@@ -7,11 +7,12 @@ const { isValidemail, isValidphone, isValid, checkPassword, isValidpincode, isEm
 const createuser = async function (req, res) {
   try {
     let data = req.body
-    let { title, name, phone, email, password, address } = data
-    let { street, city, pincode } = address
     if (Object.keys(data).length == 0) {
       return res.status(400).send({ status: false, message: "enter data in request body" })
     }
+    let { title, name, phone, email, password, address } = data
+    let { street, city, pincode } = address
+    
     if (!title) {
       return res.status(400).send({ status: false, message: "title is required" })
     }
@@ -89,13 +90,13 @@ const createuser = async function (req, res) {
       return res.status(400).send({ status: false, message: "pincode should be of 6 numeric values" })
     }
 
-    let dublicatephone=await userModel.findOne({phone:phone})
+    let dublicate=await userModel.findOne({phone:phone})
     if(dublicatephone)
       return res.status(400).send({status:false,message:"phone is already existed"})
     let dublicateemail=await userModel.findOne({email:email})
     if(dublicateemail)
       return res.status(400).send({status:false,message:"email is already existed"})
-
+    
     let userdata = await userModel.create(data)
     res.status(201).send({ status: true, message: "Success", data: userdata })
   }
