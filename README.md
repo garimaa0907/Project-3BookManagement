@@ -8,7 +8,7 @@
 
 ### Models
 - User Model
-yaml
+```yaml
 { 
   title: {string, mandatory, enum[ Mr, Mrs, Miss]},
   name: {string, mandatory},
@@ -22,7 +22,7 @@ yaml
   },
   createdAt: {timestamp},
   updatedAt: {timestamp}
-}
+}```
 
 
 - Books Model
