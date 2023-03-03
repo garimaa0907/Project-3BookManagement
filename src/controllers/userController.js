@@ -7,12 +7,17 @@ const { isValidemail, isValidphone, isValid, checkPassword, isValidpincode, isEm
 const createuser = async function (req, res) {
   try {
     let data = req.body
-    let { title, name, phone, email, password, address } = data
-    let { street, city, pincode } = address
     if (Object.keys(data).length == 0) {
       return res.status(400).send({ status: false, message: "enter data in request body" })
     }
+<<<<<<< HEAD
     if (!title){
+=======
+    let { title, name, phone, email, password, address } = data
+    let { street, city, pincode } = address
+    
+    if (!title) {
+>>>>>>> 70377cfcd45456c7d00efafb0db1c0b727b2f22a
       return res.status(400).send({ status: false, message: "title is required" })
     }
     if (!isEmpty(title))
@@ -89,13 +94,13 @@ const createuser = async function (req, res) {
       return res.status(400).send({ status: false, message: "pincode should be of 6 numeric values" })
     }
 
-    let dublicatephone=await userModel.findOne({phone:phone})
+    let dublicate=await userModel.findOne({phone:phone})
     if(dublicatephone)
       return res.status(400).send({status:false,message:"phone is already existed"})
     let dublicateemail=await userModel.findOne({email:email})
     if(dublicateemail)
       return res.status(400).send({status:false,message:"email is already existed"})
-
+    
     let userdata = await userModel.create(data)
     res.status(201).send({ status: true, message: "Success", data: userdata })
   }
@@ -139,7 +144,7 @@ const login = async function (req, res) {
      const tokeniat = new Date(decode.iat * 1000).toLocaleString()
      const tokenexp = new Date(decode.exp * 1000).toLocaleString()
 
-    res.status(201).send({ status: true, message: "User logged in Successfully", data: { token: token, userId: decode.userId, iat: tokeniat, exp: tokenexp } })
+    res.status(200).send({ status: true, message: "User logged in Successfully", data: { token: token, userId: decode.userId, iat: tokeniat, exp: tokenexp } })
   }
 
   catch (err) {
