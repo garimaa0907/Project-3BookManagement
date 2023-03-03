@@ -65,7 +65,7 @@ const createReview = async function (req, res) {
             review: newReview.review
         }
         const addReview = await bookModel.findOneAndUpdate({ _id: bookId, isDeleted: false }, { $inc: { reviews: 1 } }, { new: true }).lean()
-        addReview["reviewsData"] = obj
+        addReview ["reviewsData"] = obj
 
         return res.status(201).send({ status: true, message: "Review Added", data: addReview })
     }

@@ -1,6 +1,6 @@
 # Project-3BookManagement
 ## Project - Books Management
-
+                      
 ### Key points
 - Create a group database `groupXDatabase`. You can clean the db you previously used and resue that.
 - This time each group should have a single git branch. Coordinate amongst yourselves by ensuring every next person pulls the code last pushed by a team mate. You branch will be checked as part of the demo. Branch name should follow the naming convention `project/booksManagementGroupX`
@@ -10,7 +10,7 @@
 - User Model
 yaml
 { 
-  title: {string, mandatory, enum[Mr, Mrs, Miss]},
+  title: {string, mandatory, enum[ Mr, Mrs, Miss]},
   name: {string, mandatory},
   phone: {string, mandatory, unique},
   email: {string, mandatory, valid email, unique}, 
@@ -123,7 +123,7 @@ yaml
 
 ### DELETE /books/:bookId/review/:reviewId
 - Check if the review exist with the reviewId. Check if the book exist with the bookId. Send an error response with appropirate status code like [this](#error-response-structure) if the book or book review does not exist
-- Delete the related reivew.
+- Delete the related review.
 - Update the books document - decrease review count by one
 
 ### Authentication
@@ -137,7 +137,7 @@ yaml
 - To test these apis create a new collection in Postman named Project 4 Books Management 
 - Each api should have a new request in this collection
 - Each request in the collection should be rightly named. Eg Create user, Create book, Get books etc
-- Each member of each team should have their tests in running state
+- Each member of each team should have their tests in running state 
 
 Refer below sample
  ![A Postman collection and request sample](assets/Postman-collection-sample.png)
